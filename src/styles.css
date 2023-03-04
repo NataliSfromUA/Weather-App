@@ -1,0 +1,44 @@
+body {
+  font-family: "Poppins", sans-serif;
+  display: block;
+}
+
+.weather-app-wrapper {
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.weather-app {
+  padding: 20px;
+  border: 1px solid #dadde1;
+  border-radius: 10px;
+}
+
+h1 {
+  color: blueviolet;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  color: #b2b3b6;
+  margin: 0;
+  padding: 0;
+}
+img {
+  width: 70px;
+}
+.day {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.units {
+  position: relative;
+}

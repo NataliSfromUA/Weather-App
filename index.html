@@ -4,8 +4,6 @@
     <title>Weather App</title>
     <meta charset="UTF-8" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link href="src/styles.css" rel="stylesheet" type="text/css" />
-
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -17,135 +15,146 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
+    <link href="src/styles.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
     <div class="container">
-      <div class="row mt-4">
-        <div class="col-8">
-          <div class="card mt-10">
-            <div class="card-body">
-              <form id="searchform">
-                <div class="row">
-                  <div class="col-6">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Choose your city"
-                      aria-label="Choose your city"
-                      autofocus="on"
-                      id="searchcity"
-                    />
-                  </div>
-                  <div class="col">
-                    <button type="submit" class="btn btn-primary">
-                      Change sity
-                    </button>
-                  </div>
-                  <div class="col">
-                    <div>
-                      <button
-                        type="button"
-                        class="btn btn-success"
-                        id="current-location-button"
-                      >
-                        Current
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-
-              <div class="container text-center">
-                <div class="row">
-                  <div class="row">
-                    <div class="col-1">⛅</div>
-                    <div class="col-2">
-                      <div id="weekday">Sunday</div>
-                      <div>15.01.2023</div>
-                    </div>
-                    <div class="col-2">
-                      <div id="currenttime">16:16</div>
-                      <div id="description">Snow</div>
-                    </div>
-                  </div>
-
-                  <div class="col-4">
-                    <h1 id="city"></h1>
-                  </div>
-                  <div class="col-4">
-                    <h1>
-                      <span id="temperature"> </span>
-                      <span class="units">
-                        <a href="#" id="cels">°C </a>|
-                        <a href="#" id="far">°F </a>
-                      </span>
-                    </h1>
-                  </div>
-                  <div class="col">
-                    <ul>
-                      <li>Humidity: <span id="humidity"></span>%</li>
-                      <li>Wind: <span id="wind"></span> km/h</li>
-                    </ul>
-                  </div>
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <form id="searchform">
+            <div class="row">
+              <div class="col-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Choose your city"
+                  aria-label="Choose your city"
+                  autofocus="on"
+                  id="searchcity"
+                />
+              </div>
+              <div class="col">
+                <button type="submit" class="btn btn-primary">
+                  Change sity
+                </button>
+              </div>
+              <div class="col">
+                <div>
+                  <button
+                    type="button"
+                    class="btn btn-success"
+                    id="current-location-button"
+                  >
+                    Current
+                  </button>
                 </div>
               </div>
             </div>
+          </form>
 
+          <div class="day">
             <div class="row">
-              <div class="col">
-                Monday
-                <br />
-                16.01
-                <br />
-                ⛅
-                <br />
-                0°C
+              <div class="col-2">
+                <img
+                  src="C:\Users\user\Documents\GitHub\Weather-App\src\sunny.png"
+                  alt="Sun"
+                />
               </div>
-              <div class="col">
-                Tuesday
-                <br />
-                17.01
-                <br />
-                ⛅
-                <br />
-                +2°C
+              <div class="col-2">
+                <div id="weekday">Sunday</div>
+                <div>15.01.2023</div>
               </div>
-              <div class="col">
-                Wednesday
-                <br />
-                18.01
-                <br />
-                🌦️
-                <br />
-                +2°C
-              </div>
-              <div class="col">
-                Thursday
-                <br />
-                19.01
-                <br />
-                🌧️
-                <br />
-                +5°C
-              </div>
-              <div class="col">
-                Friday
-                <br />
-                20.01
-                <br />
-                🌧️
-                <br />
-                +7°C
+              <div class="col-2">
+                <div id="currenttime">16:16</div>
+                <div id="description">Snow</div>
               </div>
             </div>
           </div>
+
+          <div class="row">
+            <div class="col-4">
+              <h1 id="city"></h1>
+            </div>
+            <div class="col-2">
+              <h1>
+                <span id="temperature"> </span>
+              </h1>
+            </div>
+            <div class="col-2">
+              <span class="units">
+                <a href="#" id="cels">°C </a>|
+                <a href="#" id="far">°F </a>
+              </span>
+            </div>
+            <div class="col-4">
+              <ul>
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Wind: <span id="wind"></span> km/h</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              Monday
+              <br />
+              16.01
+              <br />
+              ⛅
+              <br />
+              0°C
+            </div>
+            <div class="col">
+              Tuesday
+              <br />
+              17.01
+              <br />
+              ⛅
+              <br />
+              +2°C
+            </div>
+            <div class="col">
+              Wednesday
+              <br />
+              18.01
+              <br />
+              🌦️
+              <br />
+              +2°C
+            </div>
+            <div class="col">
+              Thursday
+              <br />
+              19.01
+              <br />
+              🌧️
+              <br />
+              +5°C
+            </div>
+            <div class="col">
+              Friday
+              <br />
+              20.01
+              <br />
+              🌧️
+              <br />
+              +7°C
+            </div>
+          </div>
         </div>
-      </div>
-      <div>
-        <a href="https://github.com/NataliSfromUA/Weather-App" target="_blank"
-          >Open-source code</a
-        ><span> by Natalia Sukova</span>
+
+        <div>
+          <a href="https://github.com/NataliSfromUA/Weather-App" target="_blank"
+            >Open-source code</a
+          ><span> by Natalia Sukova</span>
+        </div>
       </div>
     </div>
 
