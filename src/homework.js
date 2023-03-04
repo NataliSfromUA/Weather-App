@@ -11,9 +11,11 @@ let days = [
 let day = days[now.getDay()];
 let today = document.querySelector("#weekday");
 today.innerHTML = `${day}`;
-
 let hours = now.getHours();
 let minutes = now.getMinutes();
+if (hours < 10) {
+  hours = `0${hours}`;
+}
 if (minutes < 10) {
   minutes = `0${minutes}`;
 }
@@ -31,12 +33,12 @@ function displayWeatherCondition(response) {
     response.data.wind.speed
   );
   document.querySelector(`#description`).innerHTML =
-    response.data.weather[0].main;
+    response.data.weather[0].description;
 }
 
 function searchCity(city) {
   let apiKey = `200802a485dc17fd74b905805d4efc94`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 

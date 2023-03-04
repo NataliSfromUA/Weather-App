@@ -12,6 +12,7 @@ body {
   padding: 20px;
   border: 1px solid #dadde1;
   border-radius: 10px;
+  margin-bottom: 30px;
 }
 
 h1 {
@@ -41,4 +42,8 @@ img {
 }
 .units {
   position: relative;
+}
+
+#description:first-letter {
+  text-transform: capitalize;
 }
