@@ -56,3 +56,10 @@ img {
 .active:hover {
   text-decoration: none;
 }
+
+.weather-forecast {
+  text-align: center;
+}
+.weather-forecast-temperature {
+  color: #b2b3b6;
+}
