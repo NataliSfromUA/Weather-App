@@ -23,6 +23,39 @@ if (minutes < 10) {
 let currentTime = document.querySelector("#currenttime");
 currentTime.innerHTML = `${hours}:${minutes}`;
 
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector(`#forecast`);
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay) {
+    forecastHTML =
+      forecastHTML +
+      `
+          <div class="col-2">
+            <div class="forecast-day">${forecastDay.dt}</div>
+            <img
+              id="icon1"
+              src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+              alt="Sun"
+            />
+            <div class="weather-forecast-temperature">
+              <span class="weather-forecast-temperature-min"> ${forecastDay.temp.max}° </span>
+              <span class="weather-forecast-temperature-max">${forecastDay.temp.min}°</span>
+             </div>
+          </div>`;
+  });
+  console.log(forecastDay.dt);
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = `00802a485dc17fd74b905805d4efc94`;
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayWeatherCondition(response) {
   document.querySelector(`#city`).innerHTML = response.data.name;
 
@@ -41,12 +74,14 @@ function displayWeatherCondition(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
   let apiKey = `200802a485dc17fd74b905805d4efc94`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeatherCondition);
+  console.log(apiUrl);
 }
 
 function handleSubmit(event) {
