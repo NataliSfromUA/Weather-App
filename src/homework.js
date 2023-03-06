@@ -86,9 +86,8 @@ function getForecast(coordinates) {
 function displayWeatherCondition(response) {
   document.querySelector(`#city`).innerHTML = response.data.name;
 
-  celsiusTemperature = response.data.main.temp;
-  document.querySelector(`#temperature`).innerHTML =
-    Math.round(celsiusTemperature);
+  Temperature = response.data.main.temp;
+  document.querySelector(`#temperature`).innerHTML = Math.round(Temperature);
   document.querySelector(`#humidity`).innerHTML = response.data.main.humidity;
   document.querySelector(`#wind`).innerHTML = Math.round(
     response.data.wind.speed
@@ -133,32 +132,7 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-function showFarTemperature(event) {
-  event.preventDefault();
-  let farGrad = document.querySelector(`#temperature`);
-  celsiusLink.classList.remove("active");
-  farLink.classList.add("active");
-  let FarGradTemp = (celsiusTemperature * 9) / 5 + 32;
-  farGrad.innerHTML = Math.round(FarGradTemp);
-}
-
-function showCelsTemperature(event) {
-  event.preventDefault();
-  let celsiusGrad = document.querySelector(`#temperature`);
-  celsiusLink.classList.add("active");
-  farLink.classList.remove("active");
-  celsiusGrad.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusTemperature = null;
-
-let farLink = document.querySelector(`#far`);
-farLink.addEventListener("click", showFarTemperature);
-
 let currentLocationButton = document.querySelector(`#current-location-button`);
 currentLocationButton.addEventListener("click", getCurrentLocation);
-
-let celsiusLink = document.querySelector(`#cels`);
-celsiusLink.addEventListener("click", showCelsTemperature);
 
 searchCity("New York");
