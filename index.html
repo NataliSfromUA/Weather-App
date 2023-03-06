@@ -42,13 +42,13 @@
                 />
               </div>
               <div class="col">
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="submit" class="btn btn-warning">Search</button>
               </div>
               <div class="col">
                 <div>
                   <button
                     type="button"
-                    class="btn btn-success"
+                    class="btn btn-outline-warning"
                     id="current-location-button"
                   >
                     Current
@@ -65,7 +65,7 @@
               </div>
               <div class="col-2">
                 <div id="weekday"></div>
-                <div>15.01.2023</div>
+                <div id="currentdate"></div>
               </div>
               <div class="col-4">
                 <div id="currenttime"></div>
@@ -78,14 +78,13 @@
             <div class="col-4">
               <h1 id="city"></h1>
             </div>
-            <div class="col-2">
+            <div class="col-3">
               <h1>
                 <span id="temperature"> </span>
+                <span class="units">°C </span>
               </h1>
             </div>
-            <div class="col-2">
-              <span class="units">°C </span>
-            </div>
+
             <div class="col-4">
               <ul>
                 <li>Humidity: <span id="humidity"></span>%</li>

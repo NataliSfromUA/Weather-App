@@ -10,15 +10,15 @@ body {
 
 .weather-app {
   padding: 20px;
-  border: 1px solid #dadde1;
+  border: 2px solid #dadde1;
   border-radius: 10px;
   margin-bottom: 30px;
 }
 
 h1 {
-  color: blueviolet;
-  font-size: 32px;
-  font-weight: 400;
+  color: #ec6e4c;
+  font-size: 36px;
+  font-weight: 600;
   margin-bottom: 30px;
 }
 
@@ -58,8 +58,18 @@ img {
 }
 
 .weather-forecast {
+  margin-top: 20px;
   text-align: center;
+  border: 2px solid #dadde1;
+  color: #b2b3b6;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f5e8e5;
 }
 .weather-forecast-temperature {
   color: #b2b3b6;
+}
+
+.weather-forecast-temperature-max {
+  color: black;
 }
